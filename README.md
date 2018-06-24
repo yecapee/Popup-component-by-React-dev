@@ -17,8 +17,35 @@
   }
 ```
 
-## Dir
+## 
+
+## Render Popup
+```js
+  render(){
+    return <Popup popupSet={this.state.popupSet} callback={this.callbackPopup.bind(this)}/>;
+  }
 ```
+
+## Callback return
+```js
+  callbackPopup( val){
+    console.log( callbackVal );
+  }
+```
+
+## Callback Popup
+```js
+  popup(){
+    const popupSet = Object.assgin({},this.state.popupSet);
+    popupSet = { ...popupSet, "display":"open", componentType:[], data:[], title: "", msg:"" }
+    
+    this.setState({
+      popupSet : popupSet
+    })
+  }
+```
+
+## Dir
 popup
 - index.js
 - popup.scss
@@ -32,4 +59,3 @@ popup
   - component
     - component_list.js
     - add_test.js
-```
