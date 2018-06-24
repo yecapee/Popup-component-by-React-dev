@@ -18,7 +18,7 @@
         border             : none;
         background         : transparent; 
     }
-    button{
+    button,span.btn{
         cursor             : pointer;
     }
     .popup-mask{
@@ -32,6 +32,7 @@
     }
     .popup-wrap{
         max-width          : 100%;
+        min-width          : 310px; 
         max-height         : 100%;
         display            : flex;
         background         : #fff;
@@ -88,7 +89,7 @@
                         &:last-child{
                             padding  : 0px 0px 0px 0px; 
                         } 
-                        button{
+                        button,span.btn{
                             width         : 120px; 
                             height        : 35px;
                             color         : #fff;
@@ -154,11 +155,15 @@
                     padding          : 10px 5px; 
                     border-top       : 1px solid #e5e5e5;
                     justify-content  : flex-end;
-                    button{
+                    button,span.btn{
                         width            : 60px;
                         height           : 35px;
                         color            : #fff; 
                         border-radius    : 2px;
+                        display          : flex;
+                        align-items      : center;
+                        justify-content  : center;
+                        font-size        : 0.9em;
                         &.no{
                             background       : #ea4335;
                             margin-right     : 10px;

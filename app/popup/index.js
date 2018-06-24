@@ -15,27 +15,28 @@ export default class Popup extends React.Component{
         };
     }
 
-    componentDidMount() {
-    }
-
     componentWillReceiveProps(nextProps) {
         this.setState({
             popupSet : nextProps.popupSet
         })
     }
 
-    popup( display,componentType,data,title,msg ){
-        let popupSet  = Object.assign({},this.state.popupSet);
-        if( display=="close" ){
-            popupSet['display']       = display;
-            popupSet['componentType'] = componentType;
-            popupSet['title']         = title;
-            popupSet['data']          = data;
-            popupSet['msg']           = msg;
-            this.setState({
-                popupSet : popupSet
-            })
+    popup( popupSet ){
+        if( popupSet['display']=="close" ){
+            popupSet['componentType'] = [];
+            popupSet['data']          = [];
+            popupSet['title']         = "";
+            popupSet['msg']           = "";
         }
+        this.setState({
+            popupSet : popupSet
+        })
+    }
+
+    mask(){
+        let popupSet = Object.assign({},this.state.popupSet);
+        popupSet['display'] = "close";
+        this.popup(popupSet);
     }
 
     returnView(){
@@ -55,7 +56,7 @@ export default class Popup extends React.Component{
     render(){
         return(
             <div id="popup" className={`${this.state.popupSet['display']}`}>
-                <div className="popup-mask" onClick={this.popup.bind(this,"close",[],[],"","")}></div>
+                <div className="popup-mask" onClick={this.mask.bind(this)}></div>
                 <div className="popup-wrap">
                     <div className="popup-content">
                         <div className="popup-head">

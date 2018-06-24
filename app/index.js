@@ -34,9 +34,9 @@ export default class Index extends React.Component{
     })
   }
 
-  callbackPopupReturn( callbackVal ){
+  callbackPopupReturn( popupSet,callbackVal ){
     console.log('====================================');
-    console.log('----',callbackVal);
+    console.log('----',popupSet,callbackVal);
     console.log('====================================');
   }
 

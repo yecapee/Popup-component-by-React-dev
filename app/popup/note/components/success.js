@@ -8,8 +8,9 @@ export default class SUCCESS_TEST extends React.Component{
         }
     }
 
-    popup( display,componentType,data,title,msg ){
-        this.props.popup( display,componentType,data,title,msg );
+    popup( popupSet ){
+        popupSet['display'] = "close";
+        this.props.popup( popupSet );
     }
 
     render(){
@@ -18,7 +19,7 @@ export default class SUCCESS_TEST extends React.Component{
                 <div className="msg"></div>
                 <div className="popup-action">
                     <ul>
-                        <li><button className="yes" onClick={this.popup.bind(this,"close",[],[],"","")}>確定</button></li>
+                        <li><button className="yes" onClick={this.popup.bind(this,this.props.popupSet)}>確定</button></li>
                     </ul>
                 </div>
             </div>
