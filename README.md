@@ -18,6 +18,7 @@
 ```
 
 ## Dir
+```
 popup
 - index.js
 - popup.scss
@@ -31,3 +32,4 @@ popup
   - component
     - component_list.js
     - add_test.js
+```
