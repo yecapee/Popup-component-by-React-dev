@@ -11,7 +11,7 @@ export default class Popup extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            popupSet : props.popupSet,
+            popupSet : props.popupSet || {},
         };
     }
 
@@ -35,10 +35,6 @@ export default class Popup extends React.Component{
             this.setState({
                 popupSet : popupSet
             })
-        }else if( display=="open" ){
-        
-        }else{
-            this.props.callback(popupSet);
         }
     }
 
@@ -47,11 +43,11 @@ export default class Popup extends React.Component{
         let mainType  = popupSet['componentType'][0];
         switch(mainType){
             case "form":
-                return <Form popupSet={popupSet}/>
+                return <Form popupSet={popupSet} callback={this.props.callback} popup={this.popup.bind(this)}/>
                 break;
 
             case "note":
-                return <Note popupSet={popupSet}/>
+                return <Note popupSet={popupSet} callback={this.props.callback} popup={this.popup.bind(this)}/>
                 break;
         }
     }
@@ -67,15 +63,6 @@ export default class Popup extends React.Component{
                             <span className="close fas fa-times" onClick={this.popup.bind(this,"close",[],[],"","")}></span>
                         </div>
                         {this.returnView()}
-                        {
-                            this.state.popupSet['componentType'][0] == 'note' &&
-                                <div className="popup-action">
-                                    <ul>
-                                        <li><button className="no" onClick={this.popup.bind(this,"close",[],[],"","")}>取消</button></li>
-                                        <li><button className="yes" onClick={this.popup.bind(this,"yes",[],[],"","")}>確定</button></li>
-                                    </ul>
-                                </div>
-                        }
                     </div>
                 </div>
             </div>

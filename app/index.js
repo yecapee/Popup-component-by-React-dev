@@ -34,9 +34,9 @@ export default class Index extends React.Component{
     })
   }
 
-  callbackPopup( callbackVal ){
+  callbackPopupReturn( callbackVal ){
     console.log('====================================');
-    console.log(callbackVal);
+    console.log('----',callbackVal);
     console.log('====================================');
   }
 
@@ -44,10 +44,11 @@ export default class Index extends React.Component{
     return(
       <div id="wrapper">
         <ul className="demo-ul">
-          <li><button onClick={this.popup.bind(this,"open",["note"],[],"警告視窗","")}>警告視窗（ Note ）</button></li>
+          <li><button onClick={this.popup.bind(this,"open",["note","msg","SUCCESS_TEST"],[],"警告視窗","")}>警告視窗（ Note ）</button></li>
+          <li><button onClick={this.popup.bind(this,"open",["note","delete","DELETE_TEST"],[],"你確定要刪除XXX","")}>刪除視窗（ Delete ）</button></li>
           <li><button onClick={this.popup.bind(this,"open",["form","add","test"],[],"表單視窗","")}>表單視窗（ Form ）</button></li>
         </ul>
-        <Popup popupSet={this.state.popupSet} callback={this.callbackPopup.bind(this)}/>
+        <Popup popupSet={this.state.popupSet} callback={this.callbackPopupReturn.bind(this)}/>
       </div>
     );
   }

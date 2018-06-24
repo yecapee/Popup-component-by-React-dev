@@ -40,7 +40,7 @@
         border-radius      : 5px;
         box-shadow         : 0px 3px 10px #00000070;  
         transform          : scale(0);
-        transition         : transform .3s ease-in-out .2s;
+        //transition         : transform .3s ease-in-out .2s;
         .popup-content{
             width            : 100%;
             height           : 100%;
@@ -84,7 +84,7 @@
                     display        : flex;
                     >li{
                         display      : inline-flex;
-                        padding      : 0px 5px 0px 0px;
+                        padding      : 0px 10px 0px 0px;
                         &:last-child{
                             padding  : 0px 0px 0px 0px; 
                         } 
@@ -92,12 +92,12 @@
                             width         : 120px; 
                             height        : 35px;
                             color         : #fff;
-                            font-size     : 0.9em; 
+                            font-size     : 0.9em;
                             &.yes{
-                                background  : #ea4335; 
+                                background  : #34a853;  
                             }
                             &.no{
-                                background  : #34a853;  
+                                background  : #ea4335; 
                             }
                         }
                     }
@@ -112,7 +112,11 @@
         visibility      : visible;
         opacity         : 1;
         .popup-wrap{
-            transform: scale(1);
+            transform      : scale(1);
+            animation-name : popupWrap;
+            -moz-animation-duration: .5s;
+            -webkit-animation-name: popupWrap; 
+            -webkit-animation-duration: .5s;
         }
     }
 
@@ -121,7 +125,6 @@
     }
     .popup-note-wrap{
         width           : 100%;
-        padding         : 5px; 
     }
 
 
@@ -145,7 +148,6 @@
                     align-items   : center;
                     >li{
                         width        : 100%;
-                        
                     }
                 }
                 &.action{
@@ -157,6 +159,10 @@
                         height           : 35px;
                         color            : #fff; 
                         border-radius    : 2px;
+                        &.no{
+                            background       : #ea4335;
+                            margin-right     : 10px;
+                        }
                         &[type=submit]{
                             background       : #34a853;
                         }
@@ -189,4 +195,10 @@
             font-size     : 0.8em;
         }
     }
+}
+
+@keyframes popupWrap {
+    0% { transform      : scale(0); }
+    60% { transform      : scale(1.1); }
+    100% { transform      : scale(1); }
 }

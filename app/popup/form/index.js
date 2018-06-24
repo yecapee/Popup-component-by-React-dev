@@ -13,7 +13,6 @@ export default class FormIndex extends React.Component{
     }
 
     componentDidMount() {
-        console.log( COMPONENTS_FORM_LIST );
     }
 
     componentWillReceiveProps(nextProps) {
@@ -23,15 +22,14 @@ export default class FormIndex extends React.Component{
     }
 
     selectWantRenderView(){
-        
         const popupSet          = Object.assign({},this.state.popupSet);
-        const ACTION_TYPE_RULE  = ["add","update","delete"];
+        const ACTION_TYPE_RULE  = ["add","update","delete","msg"];
         const ACTION_TYPE       = popupSet['componentType'][1] || "";
 
         if( ACTION_TYPE_RULE.includes(ACTION_TYPE) ){   
             const ACTION_TYPE_KEY = popupSet['componentType'][2];
             const IMPORT_COMPONENT_NAME = COMPONENTS_FORM_LIST[ACTION_TYPE][ACTION_TYPE_KEY];
-            return <IMPORT_COMPONENT_NAME />
+            return <IMPORT_COMPONENT_NAME callback={this.props.callback} popupSet={popupSet} popup={this.props.popup}/>
         }
     }
 

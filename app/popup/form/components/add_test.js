@@ -22,13 +22,26 @@ export default class AddTest extends React.Component{
         })
     }
 
-    popup(){
+    handleSubmit(e){
+        e.preventDefault();
+        const popupSet      = this.props.popupSet;
+        const display       = popupSet['display'];
+        const componentType = popupSet['componentType'];
+        const data          = popupSet['data'];
+        const title         = popupSet['title'];
+        const msg           = popupSet['msg'];
+        const formInput     = Object.assign({},this.state.formInput);
+        this.props.callback( formInput );
+        this.props.popup( display,componentType,data,title,msg );
+    }
 
+    popup(display,componentType,data,title,msg){
+        this.props.popup( display,componentType,data,title,msg );
     }
 
     render(){
         return(
-            <form>
+            <form onSubmit={this.handleSubmit.bind(this)}>
                 <ul className="form-ul">
                     <li>
                         <ul>
@@ -41,7 +54,7 @@ export default class AddTest extends React.Component{
                         </ul>
                     </li>
                     <li className="action">
-                        <button onClick={this.popup.bind(this)}>送出</button>
+                        <button className="no" onClick={this.popup.bind(this)}>取消</button>
                         <button type="submit">送出</button>
                     </li>
                 </ul>
