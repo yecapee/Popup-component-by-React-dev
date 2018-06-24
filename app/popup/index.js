@@ -33,7 +33,7 @@ export default class Popup extends React.Component{
         })
     }
 
-    mask(){
+    close(){
         let popupSet = Object.assign({},this.state.popupSet);
         popupSet['display'] = "close";
         this.popup(popupSet);
@@ -56,12 +56,12 @@ export default class Popup extends React.Component{
     render(){
         return(
             <div id="popup" className={`${this.state.popupSet['display']}`}>
-                <div className="popup-mask" onClick={this.mask.bind(this)}></div>
+                <div className="popup-mask" onClick={this.close.bind(this)}></div>
                 <div className="popup-wrap">
                     <div className="popup-content">
                         <div className="popup-head">
                             <h4>{ this.state.popupSet['title'] }</h4>
-                            <span className="close fas fa-times" onClick={this.popup.bind(this,"close",[],[],"","")}></span>
+                            <span className="close fas fa-times" onClick={this.close.bind(this)}></span>
                         </div>
                         {this.returnView()}
                     </div>

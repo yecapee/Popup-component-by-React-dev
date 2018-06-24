@@ -29,7 +29,7 @@ export default class AddTest extends React.Component{
         this.props.callback( popupSet,formInput );
     }
 
-    popup( popupSet ){
+    close( popupSet ){
         popupSet['display'] = "close";
         this.props.popup( popupSet );
     }
@@ -49,7 +49,7 @@ export default class AddTest extends React.Component{
                         </ul>
                     </li>
                     <li className="action">
-                        <span className="btn no" onClick={this.popup.bind(this,this.props.popupSet)}>取消</span>
+                        <span className="btn no" onClick={this.close.bind(this,this.props.popupSet)}>取消</span>
                         <button type="submit">送出</button>
                     </li>
                 </ul>
