@@ -35,8 +35,10 @@
 
 ## Callback return
 ```js
-  callbackPopup( val){
-    console.log( callbackVal );
+  callbackPopup( popupSet,callbackVal){
+    console.log( popupSet,callbackVal );
+    //redux
+    this.props.dispatch( ActionFunctionName(popupSet,callbackVal) );
   }
 ```
 
